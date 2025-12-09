@@ -1,0 +1,7 @@
+# Project Structure
+The project structure follows POM and is organized as follows:
+
+- **Pages Directory:** Contains page objects corresponding to the application's UI pages.
+- **Locators Directory:** Contains pages's locators objects corresponding to the application's UI pages.
+- **Element Directory:** Contains elements, like buton etc, you can meeting in app.
+- **Tests Directory:** Includes test cases for various functionalities.
