@@ -9,6 +9,7 @@ import pytest
 from utils.test_cases_data.event_creation_test_cases import*
 from utils.test_cases_data.event_test_data import*
 
+# dialog_permissions were commented out cause flag autoGrantPermissions = True was added
 @pytest.mark.smoke
 @pytest.mark.regression
 class TestInsertEventPage(BaseTest):
@@ -23,13 +24,13 @@ class TestInsertEventPage(BaseTest):
         flow_page.next_flow_button.click()
         flow_page.next_flow_button.click()
         flow_page.done_flow_button.click()
-        
         # dialog_permission.dont_allow_permission_button.click()
         # dialog_permission.dont_allow_permission_button.click()
         home_page.insert_event_button.click()
         # dialog_permission.allow_permission_button.click()
         # insert_event_page.cancel_import_contact_button.click()
         insert_event_page.fill_event_form(event_type, name, surname, date)
+        insert_event_page.hide_keyboard_if_shown()
         insert_event_page.create_event_button.click()
         
         png_bytes = flow_page.capture_screenshot()
@@ -57,7 +58,7 @@ class TestInsertEventPage(BaseTest):
         # insert_event_page.cancel_import_contact_button.click()
 
         insert_event_page.fill_event_form(event_type, name, surname, date)
-        
+        insert_event_page.hide_keyboard_if_shown()
         button_displayed = insert_event_page.create_event_button.is_enabled()
         
         png_bytes = insert_event_page.capture_screenshot()

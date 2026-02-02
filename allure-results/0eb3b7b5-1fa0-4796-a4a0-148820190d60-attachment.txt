@@ -1,0 +1,2 @@
+App com.minar.birday has been installed already. Skipping instalation.
+.activities.WelcomeActivity

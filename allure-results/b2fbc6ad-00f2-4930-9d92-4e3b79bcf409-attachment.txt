@@ -1,3 +1,0 @@
-App com.minar.birday not found. Installing...
-App com.minar.birday has been installed succes.
-.activities.WelcomeActivity
