@@ -10,6 +10,7 @@ class EventSelectorElement(BaseElement):
     }
     
     def select(self, value: str):
-        self.find().send_keys(value)
+        el = self.find()
+        el.send_keys(value)
     
-    
+     

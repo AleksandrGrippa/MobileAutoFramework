@@ -22,6 +22,8 @@ class DataGenerator():
     
     @staticmethod
     def get_date_as_str(date: datetime.date):
+        if(date == None or date == ""):
+            return ""
         return "{month} {day}, {year}".format(month = DataGenerator.months[date.month], day = date.day, year = date.year)
     
     @staticmethod
@@ -32,4 +34,3 @@ class DataGenerator():
         days_between_dates = time_between_dates.days
         random_number_of_days = random.randrange(days_between_dates)
         return start_date + datetime.timedelta(days=random_number_of_days)
-        # return start_date + datetime.timedelta(days=random_number_of_days)

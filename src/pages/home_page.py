@@ -7,6 +7,9 @@ class HomePage(BasePage):
     def insert_event_button(self):
         return BaseElement(self.driver, HomePageLocator.INSERT_EVENT_BUTTON_ID) 
     
+    @property
+    def no_events_text_view(self):
+        return BaseElement(self.driver, HomePageLocator.NO_EVENTS_TEXT_VIEW_BY_ID)
+        
     def event_element(self, index):
         return BaseElement(self.driver, HomePageLocator.get_EVENT_BY_XPATH_by_index(index))
-

@@ -38,17 +38,18 @@ class InsertEventPage(BasePage):
     def cancel_import_contact_button(self):
         return BaseElement(self.driver, InsertEventPageLocator.CANCEL_IMPORT_CONTACT_BUTTON_BY_ID)
     
-    def fill_event_form(self, event_type, name, surname, date: datetime.date, enable_switcher = True):
+    def fill_event_form(self, event_type, name, surname, date, enable_switcher = True):
         self.event_type_selector.click()
         self.event_type_selector.select(event_type)
         self.event_type_selector.click()
         self.first_name_input.click()
         self.first_name_input.input_value(name)
         self.last_name_input.input_value(surname)
-        date_as_str = DataGenerator.get_date_as_str(date)
-        self.date_input.input_value(date_as_str)
+        if date != "":
+            date_as_str = DataGenerator.get_date_as_str(date)
+            self.date_input.input_value(date_as_str)
         if enable_switcher:
             pass
         else: 
-                self.consider_the_year_switcher.click()
+            self.consider_the_year_switcher.click()
         
