@@ -49,7 +49,7 @@ jobs:
           profile: pixel_5
           script: |
             appium --log-level error &
-            sleep 15
+            sleep 60
             adb devices
             pytest -v --alluredir=allure-results
 
