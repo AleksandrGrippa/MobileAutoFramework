@@ -52,8 +52,7 @@ class ConfigLoader():
             "uiautomator2ServerLaunchTimeout": self.__get_int("appium", "uiautomator2ServerLaunchTimeout"),
             "appWaitActivity": self.__get("appium", "app_wait_activity"),
             "autoGrantPermissions": self.__get_bool("appium", "autoGrantPermissions"),
-            "skipServerInstallation": self.__get_bool("appium", "skipServerInstallation"),
-            "skipDeviceInitialization": self.__get_bool("appium", "skipDeviceInitialization")
+            'appWaitDuration': self.__get_int("appium", "app_wait_duration")
         } 
 
         if include_app:
