@@ -40,7 +40,7 @@ jobs:
           appium driver install uiautomator2@6.0.0
           appium driver list
 
-      - name: Run Android emulator and UI tests
+      - name: Start Android emulator
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 31
@@ -48,12 +48,23 @@ jobs:
           arch: x86_64
           profile: pixel_5
           script: |
-            adb logcat -c
-            appium --log-level error &
-            sleep 20
-            adb devices
-            pytest -v --alluredir=allure-results
-            adb logcat -d
+            echo "Emulator started"
+      
+      - name: Start Appium server
+        run: |
+          appium --log-level info > appium.log 2>&1 &
+          sleep 15
+
+      - name: Wait for device to be ready
+        run: |
+          adb wait-for-device
+          adb shell 'until [[ "$(getprop sys.boot_completed)" == "1" ]]; do sleep 5; done'
+          adb shell input keyevent 82
+          adb devices
+
+      
+      - name: Run UI tests
+        run: pytest -v --alluredir=allure-results
 
       - name: Install Allure
         if: always()
