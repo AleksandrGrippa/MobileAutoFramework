@@ -38,7 +38,7 @@ class BaseElement():
         
         # Find element and cache it
         element = WebDriverWait(self.driver, self.timeout).until(
-            EC.presence_of_element_located((self.locator)))
+            EC.presence_of_element_located(self.locator))
 
         
         if use_cache:
